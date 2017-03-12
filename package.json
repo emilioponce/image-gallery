@@ -1,0 +1,31 @@
+{
+  "name": "SPA-Gallery",
+  "version": "0.1.0",
+  "description": "SPA Image Gallery",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline"
+  },
+  "keywords": [
+    "SPA",
+    "Gallery",
+    "Images"
+  ],
+  "author": "epa",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.4.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "react-hot-loader": "^1.3.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
+}
