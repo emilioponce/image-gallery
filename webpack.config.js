@@ -1,10 +1,10 @@
 var path = require('path');
 
 module.exports = {
-  entry: './app/index.js',
+  entry: './src/App.js',
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js'
   },
   resolve: {
     extensions: ['.js', '.jsx']
@@ -12,9 +12,9 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.js?$/,
         exclude: /node_modules/,
-        loaders: ["react-hot-loader","babel-loader"]
+        loaders: ["babel-loader"]
       }
     ]
   }

@@ -1,9 +1,9 @@
 
 # dependencies
-/node_modules
+node_modules
 
 # environment
-/dist
+dist
 
 # other
 .DS_Store
