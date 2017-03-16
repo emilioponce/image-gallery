@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "SPA Image Gallery",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --config webpack.config.js",
     "start": "babel-node ./server.js"
   },
   "keywords": [
