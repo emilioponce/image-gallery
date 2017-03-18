@@ -3,7 +3,7 @@
 node_modules
 
 # environment
-dist
+public/bundle.js
 
 # other
 .DS_Store

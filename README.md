@@ -8,6 +8,7 @@ Build bundle
 
 Starting express server
 > npm run start
+Listening at port 3000
 
 
 *Work in progress*
