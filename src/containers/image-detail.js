@@ -11,7 +11,7 @@ class ImageDetail extends Component {
   }
 
   render () {
-    // testing only one image
+    console.log(this.props.images);
     var image = this.props.images[0];
     if(!image){
       return <div>loading image ...</div>
@@ -20,8 +20,9 @@ class ImageDetail extends Component {
     return (
       <div>
         <div>
-          <img src={image.url} alt={image.caption}/>
-          <div>Author: {image.author}</div>
+          <h2>{image.title}</h2>
+          <img src={image.url} alt={image.title}/>
+          <div>Author: {image.owner}</div>
         </div>
       </div>
     )
