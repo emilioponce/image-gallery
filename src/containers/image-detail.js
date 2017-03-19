@@ -11,7 +11,6 @@ class ImageDetail extends Component {
   }
 
   render () {
-    console.log(this.props.images);
     var image = this.props.images[0];
     if(!image){
       return <div>loading image ...</div>

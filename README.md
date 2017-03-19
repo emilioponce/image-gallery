@@ -1,4 +1,4 @@
-## SPA Gallery
+## SPA Image Gallery
 
 This site is a Single-Page Application showing a responsive image gallery.
 
