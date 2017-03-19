@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ImageDetail from './containers/image-detail';
+import ImageGallery from './containers/image-gallery';
 
 class App extends Component {
 
@@ -11,7 +11,7 @@ class App extends Component {
           <h1>SPA Image Gallery</h1>
         </div>
         <div className="container">
-          <ImageDetail/>
+          <ImageGallery/>
         </div>
         <div className="footer">
           <a href='https://github.com/emilioponce/'>emilioponce's github</a>

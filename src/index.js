@@ -11,7 +11,6 @@ import App from './App';
 const logger = createLogger();
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise, logger)(createStore);
 
-
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(RootReducer)}>
       <App />
