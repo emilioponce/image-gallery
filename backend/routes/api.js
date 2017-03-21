@@ -13,14 +13,21 @@ var flickr = new Flickr({
   api_key: API_KEY
 });
 
-function getDomainImages(images) {
-  return images.map(function(image){
+function getImagesPage(images) {
+
+  var domainImages = images.photo.map(function(image){
     return {
       'title': image.title,
       'url':'https://farm'+image.farm+'.staticflickr.com/'+image.server+'/'+image.id+'_'+image.secret+'.jpg',
       'owner': 'https://www.flickr.com/people/'+image.owner
     }
   });
+
+  return {
+    'page': images.page,
+    'pages': images.pages,
+    'images': domainImages
+  }
 }
 
 /* GET Flickr Images. */
@@ -40,8 +47,12 @@ router.get('/images', function(req, res, next) {
       if (err) {
         return res.send(err);
       }
-      var domainImages = getDomainImages(result.photos.photo);
-      res.send(domainImages);
+
+      var imagesPage = getImagesPage(result.photos);
+
+console.log("imagesPage: ",imagesPage);
+
+      res.send(imagesPage);
     });
 
   });

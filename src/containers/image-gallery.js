@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import  { fetchFlickr } from '../actions/index';
 import { bindActionCreators } from 'redux';
 import Image from '../components/image';
+import _ from 'lodash';
+import Paginator from './paginator';
 
 const INITIAL_PAGE = 1;
 
@@ -13,29 +15,30 @@ class ImageGallery extends Component {
   }
 
   renderList() {
-    return this.props.images.map((image) => {
+    return this.props.imagesPage.images.map((image) => {
       return (
-          <Image key={image.title} title={image.title} url={image.url} owner={image.owner} />
+        <Image key={image.url} title={image.title} url={image.url} owner={image.owner} />
       )
     });
   }
 
   render () {
-    var images = this.props.images;
-    if(images.length===0) {
+    var imagesPage = this.props.imagesPage;
+    if(_.isEmpty(imagesPage)) {
       return <div>loading images ...</div>
     }
-
+    
     return (
       <div>
-        {this.renderList()}
+        { this.renderList() }
+        <Paginator page={imagesPage.page} pages={imagesPage.pages} />
       </div>
     )
   }
 }
 
-function mapStateToProps({ images }){
-  return { images };
+function mapStateToProps({ imagesPage }){
+  return { imagesPage };
 }
 
 function mapDispatchToProps(dispatch){
