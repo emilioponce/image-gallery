@@ -6,8 +6,11 @@ import _ from 'lodash';
 import  { fetchFlickr } from '../actions/index';
 import Paginator from './paginator';
 import Image from '../components/image';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+
 
 const INITIAL_PAGE = 1;
+const IMAGES_PER_ROW = 4;
 
 class ImageGallery extends Component {
 
@@ -15,34 +18,42 @@ class ImageGallery extends Component {
     this.props.fetchFlickr(INITIAL_PAGE);
   }
 
-  renderList() {
-    return this.props.imagesPage.images.map((image) => {
+  renderColumns() {
+    var images = this.props.imagesPage.images;
+    return images.map((image) => {
       return (
-        <Image key={image.url} title={image.title} url={image.url} owner={image.owner} />
-      )
-    });
-  }
-
-  render () {
-    var imagesPage = this.props.imagesPage;
-    if(_.isEmpty(imagesPage)) {
-      return <div>loading images ...</div>
+        <Col key={image.url} className="col" xs={6} sm={3} md={3} lg={3}>
+          <Image title={image.title} url={image.url} owner={image.owner} />
+        </Col>)
+      });
     }
-    return (
-      <div>
-        { this.renderList() }
-        <Paginator page={imagesPage.page} pages={imagesPage.pages} />
-      </div>
-    )
+
+    render () {
+
+      var imagesPage = this.props.imagesPage;
+      if(_.isEmpty(imagesPage)) {
+        return <div>loading images ...</div>
+      }
+
+      return (
+        <div>
+          <Grid fluid>
+            <Row>
+            { this.renderColumns() }
+            </Row>
+          </Grid>
+          <Paginator page={imagesPage.page} pages={imagesPage.pages} />
+        </div>
+      )
+    }
   }
-}
 
-function mapStateToProps({ imagesPage }){
-  return { imagesPage };
-}
+  function mapStateToProps({ imagesPage }){
+    return { imagesPage };
+  }
 
-function mapDispatchToProps(dispatch){
-  return bindActionCreators( { fetchFlickr }, dispatch);
-}
+  function mapDispatchToProps(dispatch){
+    return bindActionCreators( { fetchFlickr }, dispatch);
+  }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ImageGallery);
+  export default connect(mapStateToProps, mapDispatchToProps)(ImageGallery);

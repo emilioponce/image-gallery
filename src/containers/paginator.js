@@ -12,10 +12,6 @@ class Paginator extends Component {
     var currentPage = this.props.page;
     var totalPages = this.props.pages;
 
-      //@TODO delete
-    console.log("currentPage: ", currentPage);
-    console.log("totalPages: ", totalPages);
-
     var links = [];
     var numberOfItems = 3;
     var paginationDownLimit = 1;
@@ -25,14 +21,14 @@ class Paginator extends Component {
       for(let i = currentPage; numberOfItems > 0 ; i++) {
         //@TODO if i > paginationDownLimit, create previous link for navigation purpose
         //@TODO if i = currentPage change style to highlight current selected page
-        links.push(<div key={i} onClick={()=> this.props.fetchFlickr(i)}><a href="#">{i}</a></div>);
+        links.push(<div className='paginator-page' key={i} onClick={()=> this.props.fetchFlickr(i)}><a href="#">{i}</a></div>);
         numberOfItems--;
       }
-      links.push(<div key={totalPages} onClick={()=> this.props.fetchFlickr(totalPages)}><a href="#">{totalPages}</a></div>);
+      links.push(<div className='paginator-page' key={totalPages} onClick={()=> this.props.fetchFlickr(totalPages)}><a href="#">{totalPages}</a></div>);
     } else {
       for( let i= paginationUpperLimit; i <= totalPages; i++){
         //@TODO if i = currentPage change style to highlight current selected page
-        links.push(<div key={i} onClick={()=> this.props.fetchFlickr(i)}><a href="#">{i}</a></div>);
+        links.push(<div className='paginator-page' key={i} onClick={()=> this.props.fetchFlickr(i)}><a href="#">{i}</a></div>);
       }
     }
     return links;
@@ -40,7 +36,7 @@ class Paginator extends Component {
 
   render () {
     return (
-      <div className="paginator">
+      <div className='paginator'>
         { this.generatePaginationLinks() }
       </div>
     )

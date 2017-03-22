@@ -24,28 +24,15 @@ module.exports = {
         test: /\.js?$/,
         exclude: /(node_modules)/,
         loaders: 'babel-loader'
-      }, {
-        test: /(\.scss|\.css)$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style',
-          use: 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap'
-        })
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader?modules',
+        include: /flexboxgrid/
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin({
-      filename: 'style.css',
-      allChunks: true
-    }),
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        context: __dirname,
-        postcss: [
-          autoprefixer
-        ]
-      }
-    }),
     new webpack.NoEmitOnErrorsPlugin(), // do not emit files if errors exist
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')

@@ -2,29 +2,73 @@ html,
 body { height: 100%; }
 
 body {
-  display: table;
   width: 100%;
+  font-family: sans-serif;
+  font-size: 12px;
 }
 
 header {
   background-color: aliceblue;
+  padding-bottom: 1px;
+  text-align: center;
+  color: darkslategrey;
+  padding-top: 10px;
 }
 
 main {
-  background-color: antiquewhite;
+  background-color: aliceblue;
 }
 
 footer {
     background-color: aliceblue;
+    min-height: 40px;
+    font-size: 15px;
+    padding-top: 15px;
+    padding-left:23px;
+    color: darkslategrey;
 }
 
-.page-row {
-  display: table-row;
-  height: 1px;
+h1 {
+  font-size:80px;
 }
 
-.page-row-expanded { height: 100%; }
+h3 {
+  color: indianred;
+}
 
-.inner-footer {
-  min-height: 50px;
+a:visited {
+    color: darkslategrey;
+}
+
+a:hover {
+    color: indianred;
+}
+
+.col {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 1rem;
+  margin-bottom: 0;
+  background: #FFFFFF;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  overflow: hidden;
+  text-align: center;
+  color: #ccc;
+}
+
+.paginator {
+  color: darkslategrey;
+  float: right;
+  padding-right: 20px;
+}
+.paginator-page {
+  padding: 5px;
+  margin: 5px;
+  background-color: #daecff;
+  color: #333;
+  display: inline-block;
+  font-family: monospace;
+  font-size: 24px;
+  text-align: center;
 }

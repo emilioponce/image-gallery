@@ -6,7 +6,7 @@ var router = express.Router();
 //@TODO properties
 const API_KEY = "9b59ed7d0dd204ba3c9f0f210fa559d6";
 const TAGS = "cats,dogs,horses";
-const IMAGES_PER_PAGE = 10;
+const IMAGES_PER_PAGE = 12;
 
 // Setting API_KEY for PUBLIC access
 var flickr = new Flickr({
