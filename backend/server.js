@@ -7,7 +7,6 @@ import api from './routes/api';
 
 var app = express();
 
-// @TODO move to /bin/wwww ¿?
 app.listen(3000, '0.0.0.0', (err) => {
 	if(err) {
 		console.error(err);

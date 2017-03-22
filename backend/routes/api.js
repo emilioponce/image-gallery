@@ -47,11 +47,7 @@ router.get('/images', function(req, res, next) {
       if (err) {
         return res.send(err);
       }
-
       var imagesPage = getImagesPage(result.photos);
-
-console.log("imagesPage: ",imagesPage);
-
       res.send(imagesPage);
     });
 

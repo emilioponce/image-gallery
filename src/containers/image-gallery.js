@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import  { fetchFlickr } from '../actions/index';
 import { bindActionCreators } from 'redux';
-import Image from '../components/image';
 import _ from 'lodash';
+
+import  { fetchFlickr } from '../actions/index';
 import Paginator from './paginator';
+import Image from '../components/image';
 
 const INITIAL_PAGE = 1;
 
@@ -27,7 +28,6 @@ class ImageGallery extends Component {
     if(_.isEmpty(imagesPage)) {
       return <div>loading images ...</div>
     }
-    
     return (
       <div>
         { this.renderList() }

@@ -12,7 +12,7 @@ class Paginator extends Component {
     var currentPage = this.props.page;
     var totalPages = this.props.pages;
 
-    //@TODO delete
+      //@TODO delete
     console.log("currentPage: ", currentPage);
     console.log("totalPages: ", totalPages);
 

@@ -1,0 +1,30 @@
+html,
+body { height: 100%; }
+
+body {
+  display: table;
+  width: 100%;
+}
+
+header {
+  background-color: aliceblue;
+}
+
+main {
+  background-color: antiquewhite;
+}
+
+footer {
+    background-color: aliceblue;
+}
+
+.page-row {
+  display: table-row;
+  height: 1px;
+}
+
+.page-row-expanded { height: 100%; }
+
+.inner-footer {
+  min-height: 50px;
+}

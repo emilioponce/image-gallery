@@ -7,15 +7,17 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div className="header">
-          <h1>SPA Image Gallery</h1>
-        </div>
-        <div className="container">
+        <header className="page-row">
+          <h2>SPA Image Gallery</h2>
+        </header>
+        <main className="page-row page-row-expanded">
           <ImageGallery/>
-        </div>
-        <div className="footer">
-          <a href='https://github.com/emilioponce/'>emilioponce's github</a>
-        </div>
+        </main>
+        <footer className="page-row">
+          <div className="inner-footer">
+            <a href='https://github.com/emilioponce/'>emilioponce's github</a>
+          </div>
+        </footer>
       </div>
     );
   }
