@@ -1,11 +1,23 @@
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
+import webpack from 'webpack';
+import config from '../webpack.config';
 
 import index from './routes/index';
 import api from './routes/api';
 
-var app = express();
+const app = express();
+const compiler = webpack(config);
+
+app.use(require('webpack-dev-middleware')(compiler, {
+  publicPath: config.output.publicPath,
+  stats: {
+    colors: true
+  }
+}));
+
+app.use(require('webpack-hot-middleware')(compiler));
 
 app.listen(3000, '0.0.0.0', (err) => {
 	if(err) {

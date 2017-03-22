@@ -1,27 +1,3 @@
-
-var path = require('path');
-
-module.exports = {
-  entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js'
-  },
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.js?$/,
-        exclude: /node_modules/,
-        loaders: ["babel-loader"]
-      }
-    ]
-  }
-};
-
-/*
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
@@ -35,39 +11,45 @@ module.exports = {
     './src/index.js',
   ],
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
     publicPath: '/'
   },
   resolve: {
-    extensions: ['', '.jsx', '.scss', '.js', '.json'],
-    modulesDirectories: [
-      'node_modules',
-      path.resolve(__dirname, './node_modules')
-    ]
+    extensions: ['.jsx', '.scss', '.js']
   },
   module: {
     loaders: [
       {
         test: /\.js?$/,
         exclude: /(node_modules)/,
-        loaders: ["babel-loader"]
-        query: {
-           presets:['es2015','react']
-        }
+        loaders: 'babel-loader'
       }, {
         test: /(\.scss|\.css)$/,
-        loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap')
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style',
+          use: 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap'
+        })
       }
     ]
   },
-  postcss: [autoprefixer],
   plugins: [
-    new ExtractTextPlugin('style.css', { allChunks: true }),
-    new webpack.NoErrorsPlugin(),
+    new ExtractTextPlugin({
+      filename: 'style.css',
+      allChunks: true
+    }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        context: __dirname,
+        postcss: [
+          autoprefixer
+        ]
+      }
+    }),
+    new webpack.NoEmitOnErrorsPlugin(), // do not emit files if errors exist
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ]
 };
-*/
