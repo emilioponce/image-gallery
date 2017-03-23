@@ -17,9 +17,9 @@ function getImagesPage(images) {
 
   var domainImages = images.photo.map(function(image){
     return {
+      'id': image.id,
       'title': image.title,
-      'url':'https://farm'+image.farm+'.staticflickr.com/'+image.server+'/'+image.id+'_'+image.secret+'_q.jpg',
-      'owner': 'https://www.flickr.com/people/'+image.owner
+      'url':'https://farm'+image.farm+'.staticflickr.com/'+image.server+'/'+image.id+'_'+image.secret+'_q.jpg'
     }
   });
 
