@@ -5,9 +5,10 @@ import _ from 'lodash';
 
 import  { fetchFlickr } from '../actions/index';
 import Paginator from './paginator';
-import Image from '../components/image';
+import Image from '../containers/image';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
+import ImageDetail from '../components/image-detail';
 
 const INITIAL_PAGE = 1;
 const IMAGES_PER_ROW = 4;
@@ -23,7 +24,7 @@ class ImageGallery extends Component {
     return images.map((image) => {
       return (
         <Col key={image.url} className="col" xs={3} sm={2} md={2} lg={2}>
-          <Image title={image.title} url={image.url} owner={image.owner} />
+          <Image id={image.id} title={image.title} url={image.url}/>
         </Col>)
       });
     }
@@ -37,9 +38,12 @@ class ImageGallery extends Component {
 
       return (
         <div>
+
+          <div><ImageDetail/></div>
+
           <Grid fluid>
             <Row>
-            { this.renderColumns() }
+              { this.renderColumns() }
             </Row>
           </Grid>
           <Paginator page={imagesPage.page} pages={imagesPage.pages} />
