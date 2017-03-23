@@ -8,8 +8,9 @@ import Paginator from './paginator';
 import Image from '../containers/image';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
-import ImageDetail from '../components/image-detail';
+import ImageDetail from '../containers/image-detail';
 
+// @TODO to properties FILE
 const INITIAL_PAGE = 1;
 const IMAGES_PER_ROW = 4;
 
@@ -38,9 +39,7 @@ class ImageGallery extends Component {
 
       return (
         <div>
-
           <div><ImageDetail/></div>
-
           <Grid fluid>
             <Row>
               { this.renderColumns() }

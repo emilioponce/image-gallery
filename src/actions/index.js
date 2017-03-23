@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const FETCH_IMAGES_DATA = 'FETCH_IMAGES_DATA';
 export const FETCH_IMAGE_DETAIL = 'FETCH_IMAGE_DETAIL';
+export const OPEN_LIGHT_BOX = 'OPEN_LIGHT_BOX';
 
 export function fetchFlickr(npag) {
   //@TODO URL in properties
@@ -20,5 +21,19 @@ export function fetchImageDetail(imageId) {
   return {
     type: FETCH_IMAGE_DETAIL,
     payload: request
+  };
+}
+
+export function openLightBox(image){
+  return {
+    type: OPEN_LIGHT_BOX,
+    payload: {lightboxIsOpen: true}
+  };
+}
+
+export function closeLightBox(image){
+  return {
+    type: OPEN_LIGHT_BOX,
+    payload: {lightboxIsOpen: false}
   };
 }
