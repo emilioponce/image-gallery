@@ -7,7 +7,7 @@ class Image extends Component {
       <div>
         <div>
           <h3>{this.props.title}</h3>
-          <img width='300px' src={this.props.url} alt={this.props.title}/>
+          <img src={this.props.url} alt={this.props.title}/>
           <div>Owner: {this.props.owner}</div>
         </div>
       </div>

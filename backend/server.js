@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import webpack from 'webpack';
 import config from '../webpack.config';
 
+// routes
 import index from './routes/index';
 import api from './routes/api';
 

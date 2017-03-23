@@ -22,7 +22,7 @@ class ImageGallery extends Component {
     var images = this.props.imagesPage.images;
     return images.map((image) => {
       return (
-        <Col key={image.url} className="col" xs={6} sm={3} md={3} lg={3}>
+        <Col key={image.url} className="col" xs={3} sm={2} md={2} lg={2}>
           <Image title={image.title} url={image.url} owner={image.owner} />
         </Col>)
       });
