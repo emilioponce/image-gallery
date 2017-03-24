@@ -11,22 +11,22 @@ React + Redux + Jest + Nodejs (v6.9.4 LTS) + Expressjs + Webpack + FlickrAPI cli
 ```shell
 > git clone https://github.com/emilioponce/image-gallery.git
 > npm install
-```shell
+```
 
 ### Build
 ```shell
 > npm run build
-```shell
+```
 
 ### Starting express server (listening at localhost:3000)
 ```shell
 > npm run start
-```shell
+```
 
 ### Test with Jest
 ```shell
 > npm run test
-```shell
+```
 ---
 
 ### Future improvements
