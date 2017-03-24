@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import  { fetchFlickr } from '../actions/index';
 import { bindActionCreators } from 'redux';
 
+//@TODO NOT to config file due I'm going to change full paginator component
 const NUMBER_OF_ITEMS = 3;
 
 class Paginator extends Component {

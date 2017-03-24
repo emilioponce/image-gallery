@@ -1,14 +1,10 @@
 import express from 'express';
 import Flickr from 'node-flickr';
+import { API_KEY, TAGS, IMAGES_PER_PAGE } from '../config/properties';
 
 var router = express.Router();
 
-//@TODO properties
-const API_KEY = "9b59ed7d0dd204ba3c9f0f210fa559d6";
-const TAGS = "cats,dogs,horses";
-const IMAGES_PER_PAGE = 18;
-
-// Setting API_KEY for PUBLIC access
+// Setting API Key for PUBLIC access
 var flickr = new Flickr({
   api_key: API_KEY
 });
@@ -19,7 +15,7 @@ function getImagesPage(images) {
     return {
       'id': image.id,
       'title': image.title,
-      'url':'https://farm'+image.farm+'.staticflickr.com/'+image.server+'/'+image.id+'_'+image.secret+'_q.jpg'
+      'url': 'https://farm'+image.farm+'.staticflickr.com/'+image.server+'/'+image.id+'_'+image.secret+'_q.jpg'
     }
   });
 
@@ -42,7 +38,7 @@ router.get('/images', function(req, res, next) {
 
   flickr.get(
     "photos.search",
-    {"tags":TAGS,"page":requestedPag,"per_page":IMAGES_PER_PAGE},
+    {"tags":TAGS, "page":requestedPag, "per_page":IMAGES_PER_PAGE},
     function(err, result){
       if (err) {
         return res.send(err);
@@ -57,8 +53,6 @@ router.get('/images', function(req, res, next) {
 
   /* GET Flickr Image */
   router.get('/images/:id', function(req, res, next) {
-
-// EXAMPLE id: 9638138263
 
     // validate obligatory path param
     var imageId = req.params.id;

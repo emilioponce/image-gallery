@@ -2,17 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 import  { fetchFlickr } from '../actions/index';
 import Paginator from './paginator';
 import Image from '../containers/image';
-import { Grid, Row, Col } from 'react-flexbox-grid';
-
 import ImageDetail from '../containers/image-detail';
-
-// @TODO to properties FILE
-const INITIAL_PAGE = 1;
-const IMAGES_PER_ROW = 4;
+import { INITIAL_PAGE } from '../config/properties';
 
 class ImageGallery extends Component {
 

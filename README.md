@@ -2,14 +2,17 @@
 
 This site is a Single-Page Application showing a responsive image gallery.
 
+### Install instructions
+> git clone https://github.com/emilioponce/image-gallery.git
+> npm install
 
-Build bundle
+### Build
 > npm run build
 
-Starting express server (listening at port 3000)
+### Starting express server (listening at port 3000)
 > npm run start
 
-Test
+### Test with Jest
 > npm run test
 
 
