@@ -16,21 +16,14 @@ class ImageDetail extends Component {
     this.props.closeLightBox();
   }
 
-  // DISCLAIMER: react-images Lightbox package only supports 1 text field 'caption' beyond the image!
+  // NOTE: react-images Lightbox package only supports 1 text field called 'caption' beyond the image!
   getCaptionContent(){
-    var image = this.props.image;
-    var captionContent = [];
-    captionContent.push(image.title._content);
-    return captionContent;
-    /*
-    ownerUsername={image.owner.username}
-    ownerRealname={image.owner.realname}
-    ownerLocation={image.owner.location}
-    imageMedia={image.media}
-    imageDescription={image.description._content}
-    takenDate={image.dates.taken}
-    flickrUrl={image.urls.url._content}
-    */
+    let image = this.props.image;
+    let title = image.title._content ? image.title._content : 'No title';
+    let ownerUserName = image.owner.username ? image.owner.username : 'anonymous';
+    let ownerRealName = image.owner.realname ? image.owner.realname : 'not provided';
+    let flickrUrl = image.urls.url[0]._content ? image.urls.url[0]._content : 'not provided';
+    return title+' by '+ ownerUserName + ' ('+ownerRealName+'). Flickr Url: '+flickrUrl;
   }
 
   render() {
@@ -45,7 +38,7 @@ class ImageDetail extends Component {
         <Lightbox
           images={[{
             src: 'https://farm'+image.farm+'.staticflickr.com/'+image.server+'/'+image.id+'_'+image.secret+'.jpg',
-            caption: this.getCaptionContent
+            caption: this.getCaptionContent()
           }]}
           isOpen={this.props.lightbox.lightboxIsOpen}
           onClose={this.closeLB}>

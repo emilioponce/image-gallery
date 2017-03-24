@@ -13,7 +13,7 @@ class Image extends Component {
 
   handleClick() {
     this.props.fetchImageDetail(this.props.id);
-    // opening lightbox, with selected activeImage content
+    // opening Lightbox with selected activeImage content
     this.props.openLightBox();
   }
 
