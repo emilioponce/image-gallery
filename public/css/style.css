@@ -48,13 +48,13 @@ a:hover {
   position: relative;
   box-sizing: border-box;
   min-height: 1rem;
-  margin-bottom: 0;
-  background: #FFFFFF;
-  border: 1px solid lightgray;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  border: 1px solid #f4f4f4;
   border-radius: 2px;
+  background-color: white;
   overflow: hidden;
   text-align: center;
-  color: #ccc;
 }
 
 .paginator {

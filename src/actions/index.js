@@ -25,13 +25,13 @@ export function fetchImageDetail(imageId) {
   };
 }
 
-export function openLightBox(image){
+export function openLightBox() {
   return {
     type: OPEN_LIGHT_BOX
   };
 }
 
-export function closeLightBox(image){
+export function closeLightBox() {
   return {
     type: CLOSE_LIGHT_BOX
   };
