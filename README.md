@@ -13,7 +13,7 @@ React + Redux + Jest + Nodejs (v6.9.4 LTS) + Expressjs + Webpack + FlickrAPI cli
 > npm install
 ```
 
-### Build
+### Build
 ```shell
 > npm run build
 ```
