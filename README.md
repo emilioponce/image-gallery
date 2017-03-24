@@ -13,14 +13,16 @@ React + Redux + Jest + Nodejs (v6.9.4 LTS) + Expressjs + Webpack + FlickrAPI cli
 > npm install
 ```
 
-### Build
-```shell
-> npm run build
-```
-
 ### Starting express server (listening at localhost:3000)
 ```shell
-> npm run start
+> npm start
+```
+*Important: this is dev environment so webpack-dev-middleware and webpack-hot-middleware are enabled!*
+
+
+### Build (manual)
+```shell
+> npm run build
 ```
 
 ### Test with Jest
