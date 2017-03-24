@@ -6,9 +6,11 @@ This site is a Single-Page Application showing a responsive image gallery.
 Build bundle
 > npm run build
 
-Starting express server
+Starting express server (listening at port 3000)
 > npm run start
-Listening at port 3000
+
+Test
+> npm run test
 
 
 *Work in progress*
