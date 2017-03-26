@@ -34,7 +34,6 @@ React + Redux + Jest + Nodejs (v6.9.4 LTS) + Expressjs + Webpack + FlickrAPI cli
 ### Future improvements
 * SSR - Server Side Rendering.
 * More tests with Jest. Unit, Integration, Snapshots.
-* Redux-Promise/axios => Redux-Thunk.
 * Async image loading.
 * LightBox. State deletion when close action is dispatched.
 * LightBox. Unlimited caption text.
