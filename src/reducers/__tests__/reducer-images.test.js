@@ -1,4 +1,4 @@
-import { FETCH_IMAGES_DATA } from '../../actions/index';
+import { FETCH_IMAGES } from '../../actions/index';
 import reducer from '../reducer-images';
 
 describe('Images Reducer', () => {
@@ -14,7 +14,7 @@ describe('Images Reducer', () => {
   // Change Redux-promise + axios to middleware redux-thunk would be good idea
   it.skip('Fetch Image data state', () => {
     const action = {
-      type: FETCH_IMAGES_DATA,
+      type: FETCH_IMAGES,
       payload: {
         pages: 300
       }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { URL_BASE } from '../config/properties';
 
-export const FETCH_IMAGES_DATA = 'FETCH_IMAGES_DATA';
+export const FETCH_IMAGES= 'FETCH_IMAGES';
 export const FETCH_IMAGE_DETAIL = 'FETCH_IMAGE_DETAIL';
 export const OPEN_LIGHT_BOX = 'OPEN_LIGHT_BOX';
 export const CLOSE_LIGHT_BOX = 'CLOSE_LIGHT_BOX';
@@ -12,7 +12,7 @@ export function fetchImages(npag) {
     return axios.get(URL).then(
       response => {
         dispatch({
-          type: FETCH_IMAGES_DATA,
+          type: FETCH_IMAGES,
           payload: response
         });
       },
