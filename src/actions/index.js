@@ -6,22 +6,38 @@ export const FETCH_IMAGE_DETAIL = 'FETCH_IMAGE_DETAIL';
 export const OPEN_LIGHT_BOX = 'OPEN_LIGHT_BOX';
 export const CLOSE_LIGHT_BOX = 'CLOSE_LIGHT_BOX';
 
-export function fetchFlickr(npag) {
+export function fetchImages(npag) {
   const URL = URL_BASE + '/images?pag=' + npag;
-  const request = axios.get(URL);
-  return {
-    type: FETCH_IMAGES_DATA,
-    payload: request
-  };
+  return dispatch => {
+    return axios.get(URL).then(
+      response => {
+        dispatch({
+          type: FETCH_IMAGES_DATA,
+          payload: response
+        });
+      },
+      error => {
+        throw error;
+      }
+    );
+  }
 }
 
 export function fetchImageDetail(imageId) {
   const URL = URL_BASE + '/images/' + imageId;
-  const request = axios.get(URL);
-  return {
-    type: FETCH_IMAGE_DETAIL,
-    payload: request
-  };
+  return dispatch => {
+    return axios.get(URL).then(
+      response => {
+        dispatch({
+          type: FETCH_IMAGE_DETAIL,
+          payload: response
+        });
+      },
+      error => {
+        throw error;
+      }
+    )
+  }
 }
 
 export function openLightBox() {

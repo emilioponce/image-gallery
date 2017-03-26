@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import _ from 'lodash';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
-import  { fetchFlickr } from '../actions/index';
+import  { fetchImages } from '../actions/index';
 import Paginator from './paginator';
 import Image from '../containers/image';
 import ImageDetail from '../containers/image-detail';
@@ -13,7 +13,7 @@ import { INITIAL_PAGE } from '../config/properties';
 class ImageGallery extends Component {
 
   componentDidMount(){
-    this.props.fetchFlickr(INITIAL_PAGE);
+    this.props.fetchImages(INITIAL_PAGE);
   }
 
   renderColumns() {
@@ -52,7 +52,7 @@ class ImageGallery extends Component {
   }
 
   function mapDispatchToProps(dispatch){
-    return bindActionCreators( { fetchFlickr }, dispatch);
+    return bindActionCreators( { fetchImages }, dispatch);
   }
 
   export default connect(mapStateToProps, mapDispatchToProps)(ImageGallery);
