@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Lightbox from 'react-images';
 import { bindActionCreators } from 'redux';
+import _ from 'lodash';
 
 import  { closeLightBox } from '../actions/index';
 

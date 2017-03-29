@@ -15,7 +15,6 @@ class Paginator extends Component {
 
     var links = [];
     var numberOfItems = 3;
-    var paginationDownLimit = 1;
     var paginationUpperLimit = totalPages-NUMBER_OF_ITEMS;
 
     if(currentPage <= paginationUpperLimit) {
