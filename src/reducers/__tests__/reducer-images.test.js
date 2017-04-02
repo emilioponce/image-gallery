@@ -11,7 +11,6 @@ describe('Images Reducer', () => {
   })
 
   // @TODO Async tests : FAILURE, EMPTY, WITH_DATA
-  // Change Redux-promise + axios to middleware redux-thunk would be good idea
   it.skip('Fetch Image data state', () => {
     const action = {
       type: FETCH_IMAGES,
