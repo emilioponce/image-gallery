@@ -1,45 +1,58 @@
 # SPA IMAGE GALLERY
 
-A Single-Page Application showing a responsive image gallery, using Flickr API.
+A Single-Page Application showing a responsive Flickr image gallery.
+[Flickr API](https://www.flickr.com/services/api/).
 
-### Stack
-React + Redux + Jest + Nodejs (v6.9.4 LTS) + Expressjs + Webpack + FlickrAPI client
+## Stack
+* React + Redux
+* Jest
+* Nodejs (v6.9.4 LTS) + Expressjs
+* Webpack bundler
+* FlickrAPI client
 
 ---
 
-### Install instructions
+## Install instructions
 ```shell
 > git clone https://github.com/emilioponce/image-gallery.git
-> npm install
+> npm install (or yarn)
 ```
 
-### Starting express server (listening at localhost:3000)
+## Development environment
+*Important: this is DEV environment, so webpack-dev-middleware and webpack-hot-middleware are enabled!*
+### Build BIG bundle.js
 ```shell
-> npm start
+> npm run build:dev
 ```
-*Important: this is dev environment so webpack-dev-middleware and webpack-hot-middleware are enabled!*
-
-
-### Build (manual)
+### Starting dev express server (listening at localhost:3000)
 ```shell
-> npm run build
+> npm start:dev
 ```
-
 ### Test with Jest
 ```shell
 > npm run test
 ```
+
+## Production environment
+### Build optimized bundle.js
+```shell
+> npm run build
+```
+### Starting express server (listening at localhost:3000)
+```shell
+> npm start
+```
+
+
 ---
 
 ### Future improvements
 * SSR - Server Side Rendering.
-* More tests with Jest. Unit, Integration, Snapshots.
+* More tests. Snapshots.
 * Async image loading.
 * LightBox. State deletion when close action is dispatched.
 * LightBox. Unlimited caption text.
 * New pagination container.
 * Improve responsive behaviour. Better Flexbox integration.
-* Environment profiles. Minification in production. Bundle size.
 * ES6 import of CSS. Webpack loader VS inline CSS.
-* Improve design. Add FLickr Logo.
-* Image hover will show title.
+* Improve design. Add Flickr Logo.

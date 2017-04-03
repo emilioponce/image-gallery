@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "description": "SPA Image Gallery",
   "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "start": "babel-node ./backend/server.js",
+    "build:dev": "NODE_ENV=development webpack --config webpack.config.js",
+    "build": "NODE_ENV=production webpack --config webpack.config.prod.js -p",
+    "start:dev": "NODE_ENV=development babel-node ./backend/server.js",
+    "start":"NODE_ENV=production babel-node ./backend/server.js",
     "test": "jest"
   },
   "repository": {

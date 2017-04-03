@@ -1,12 +1,12 @@
 import express from 'express';
 import Flickr from 'node-flickr';
-import { API_KEY, TAGS, IMAGES_PER_PAGE } from '../config/properties';
+import config from '../../config/config';
 
 var router = express.Router();
 
 // Setting API Key for PUBLIC access
 var flickr = new Flickr({
-  api_key: API_KEY
+  api_key: config.API_KEY
 });
 
 function getImagesPage(images) {
@@ -38,7 +38,7 @@ router.get('/images', function(req, res, next) {
 
   flickr.get(
     "photos.search",
-    {"tags":TAGS, "page":requestedPag, "per_page":IMAGES_PER_PAGE},
+    {"tags":config.TAGS, "page":requestedPag, "per_page":config.IMAGES_PER_PAGE},
     function(err, result){
       if (err) {
         return res.send(err);

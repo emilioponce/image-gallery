@@ -1,22 +1,23 @@
 import express from 'express';
 import path from 'path';
-import webpack from 'webpack';
 
-// webpack
-import config from '../webpack.config';
+// webpack & config for dev environment purpose
+import webpack from 'webpack';
+import webpackConfig from '../webpack.config';
+
 // routes
 import index from './routes/index';
 import api from './routes/api';
 
 const app = express();
-const compiler = webpack(config);
 
+if (process.env.NODE_ENV === 'development') {
 
-if (process.env.NODE_ENV !== 'test') {
+  const compiler = webpack(webpackConfig);
 
   // middleware to ease develop
   app.use(require('webpack-dev-middleware')(compiler, {
-    publicPath: config.output.publicPath,
+    publicPath: webpackConfig.output.publicPath,
     stats: {
       colors: true
     }
@@ -25,6 +26,9 @@ if (process.env.NODE_ENV !== 'test') {
   // middleware for automatic reloading
   app.use(require('webpack-hot-middleware')(compiler));
 
+}
+
+if(process.env.NODE_ENV !== 'test') {
   // server up
   app.listen(3000, '0.0.0.0', (err) => {
     if(err) {
@@ -33,7 +37,6 @@ if (process.env.NODE_ENV !== 'test') {
       console.info('Listening at http://localhost:3000');
     }
   });
-
 }
 
 // public directory for static content
@@ -58,9 +61,9 @@ app.use(function(req, res, next) {
 });
 
 // error handler
+// @TODO depends on environment
 app.use(function(err, req, res, next) {
   res.locals.message = err.message;
-  // @TODO depends on environment
   res.locals.error = err;
   // render the error page
   res.status(err.status || 500);
