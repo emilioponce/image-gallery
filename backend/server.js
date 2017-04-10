@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import favicon from 'serve-favicon';
 
 // webpack & config for dev environment purpose
 import webpack from 'webpack';
@@ -41,6 +42,13 @@ if(process.env.NODE_ENV !== 'test') {
 
 // public directory for static content
 app.use(express.static(path.join(__dirname, '/../public')));
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
+// favicon
+app.use(favicon(path.join(__dirname, '/../public', 'favicon.ico')));
 
 // Enabling CORS
 app.use(function(req, res, next) {
