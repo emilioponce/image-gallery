@@ -52,7 +52,6 @@ A Single-Page Application showing a responsive Flickr image gallery.
 * Async image loading.
 * LightBox. State deletion when close action is dispatched.
 * LightBox. Unlimited caption text.
-* New pagination container.
 * Improve responsive behaviour. Better Flexbox integration.
 * ES6 import of CSS. Webpack loader VS inline CSS.
-* Improve design. Add Flickr Logo.
+* Improve CSS. Add Flickr Logo.
