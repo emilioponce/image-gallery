@@ -11,12 +11,18 @@ import App from './App';
 
 const logger = createLogger();
 
-//@TODO logger and freeze middlewares only in DEV environment
-const createStoreWithMiddleware = applyMiddleware(thunk, freeze, logger)(createStore);
+function getMiddlewaresStore() {
+  let environment = process.env.NODE_ENV ;
+  const prodMiddlewaresStore = applyMiddleware(thunk)(createStore);;
+  const devMiddlewaresStore = applyMiddleware(thunk, freeze, logger)(createStore);;
+  return (environment === 'production') ? prodMiddlewaresStore : devMiddlewaresStore;
+}
+
+let createStoreWithMiddleware = getMiddlewaresStore();
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(RootReducer)}>
-      <App />
+    <App />
   </Provider>,
   document.getElementById('root')
 );
