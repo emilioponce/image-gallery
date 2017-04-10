@@ -20,12 +20,12 @@ main {
 }
 
 footer {
-    background-color: aliceblue;
-    min-height: 40px;
-    font-size: 15px;
-    padding-top: 15px;
-    padding-left:23px;
-    color: darkslategrey;
+  background-color: aliceblue;
+  min-height: 40px;
+  font-size: 15px;
+  padding-top: 15px;
+  padding-left:23px;
+  color: darkslategrey;
 }
 
 h1 {
@@ -37,11 +37,11 @@ h3 {
 }
 
 a:visited {
-    color: darkslategrey;
+  color: darkslategrey;
 }
 
 a:hover {
-    color: indianred;
+  color: indianred;
 }
 
 .col {
@@ -62,13 +62,31 @@ a:hover {
   float: right;
   padding-right: 20px;
 }
+
 .paginator-page {
+  cursor: default;
   padding: 5px;
   margin: 5px;
   background-color: #daecff;
   color: #333;
   display: inline-block;
   font-family: monospace;
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
+}
+
+.paginator-button {
+  cursor: default;
+  padding: 5px;
+  margin: 5px;
+  color: cadetblue;
+  display: inline-block;
+  font-family: monospace;
+  font-size: 20px;
+  text-align: center;
+}
+
+.paginator-page-active {
+  cursor: default;
+  background-color: cadetblue;
 }

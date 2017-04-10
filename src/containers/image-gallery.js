@@ -3,14 +3,19 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import ReactPaginate from 'react-paginate';
 
 import  { fetchImages } from '../actions/index';
-import Paginator from './paginator';
 import Image from '../containers/image';
 import ImageDetail from '../containers/image-detail';
 import { INITIAL_PAGE } from '../config/properties';
 
 class ImageGallery extends Component {
+
+  constructor(props){
+    super(props);
+    this.handlePageClick = this.handlePageClick.bind(this);
+  }
 
   componentDidMount(){
     this.props.fetchImages(INITIAL_PAGE);
@@ -26,8 +31,12 @@ class ImageGallery extends Component {
       });
     }
 
-    render () {
+    handlePageClick(data) {
+      let selected = data.selected+1;
+      this.props.fetchImages(selected);
+    };
 
+    render () {
       var imagesPage = this.props.imagesPage;
       if(_.isEmpty(imagesPage)) {
         return <div>loading images ...</div>
@@ -41,7 +50,21 @@ class ImageGallery extends Component {
               { this.renderColumns() }
             </Row>
           </Grid>
-          <Paginator page={imagesPage.page} pages={imagesPage.pages} />
+          <ReactPaginate
+            previousLabel='<'
+            nextLabel='>'
+            breakLabel='...'
+            pageCount={imagesPage.pages}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={2}
+            onPageChange={this.handlePageClick}
+            containerClassName='paginator'
+            pageClassName='paginator-page'
+            previousClassName='paginator-button'
+            nextClassName='paginator-button'
+            breakClassName='paginator-button'
+            activeClassName='paginator-page-active'
+            />
         </div>
       )
     }
